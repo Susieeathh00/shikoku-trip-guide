@@ -25,13 +25,13 @@ h1{font-size:clamp(34px,6vw,66px);line-height:1.05;margin:8px 0 10px;letter-spac
 .day{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--day);border-radius:20px;margin:12px 0;padding:18px;box-shadow:var(--shadow)}
 .dayhead{display:flex;justify-content:space-between;gap:12px;align-items:start} .day h2{margin:4px 0 0;font-size:21px;line-height:1.25} button{font:inherit} .route-toggle{border:1px solid var(--line);background:#f2eadb;border-radius:999px;padding:7px 11px;font-size:12px;cursor:pointer;white-space:nowrap}
 .timeline{display:grid;grid-template-columns:70px 18px 1fr;gap:10px;margin-top:16px;align-items:start} .time{font-weight:800;font-variant-numeric:tabular-nums;font-size:14px} .dot{width:12px;height:12px;border-radius:50%;background:var(--day);margin-top:5px;box-shadow:0 0 0 5px color-mix(in srgb,var(--day) 16%,transparent)} .content strong{font-size:15px} .content p{margin:3px 0 0;color:#4f5a53;font-size:14px}
-.routebox{display:none;margin-top:14px;border-top:1px dashed var(--line);padding-top:14px} .routebox.open{display:block} .route-title{font-size:12px;font-weight:800;color:var(--muted)} .map-embed{margin-top:8px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#e9e3d5;position:relative;aspect-ratio:16/9}.map-embed iframe{display:block;width:100%;height:100%;border:0}.map-placeholder{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--muted);font-size:13px}.map-placeholder b{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.stops{font-size:13px;color:var(--muted);margin-top:8px}
+.routebox{display:none;margin-top:14px;border-top:1px dashed var(--line);padding-top:14px}.routebox.open{display:block}.route-title{font-size:12px;font-weight:900;color:var(--muted)}.route-visual{margin-top:9px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#f6f0e3,#eee5d2);padding:14px;overflow:hidden}.route-visual-inner{display:flex;align-items:center;gap:0;overflow-x:auto;padding:6px 2px 10px;scrollbar-width:thin}.route-node{flex:0 0 145px;position:relative;text-align:center}.route-node:not(:last-child)::after{content:"";position:absolute;top:22px;right:-18px;width:36px;height:4px;background:var(--day);border-radius:99px;opacity:.75}.route-dot{width:42px;height:42px;margin:0 auto 7px;border-radius:50%;display:grid;place-items:center;background:var(--day);color:#fff;font-weight:900;box-shadow:0 0 0 6px color-mix(in srgb,var(--day) 14%,transparent)}.route-node span{display:block;font-size:12px;font-weight:850;line-height:1.35}.route-hint{margin:2px 2px 0;color:var(--muted);font-size:11px}.stops{font-size:13px;color:var(--muted);margin-top:8px}.maps-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.maps-route{margin-top:0}.maps-segments{font-size:11px;color:var(--muted);margin-top:7px}body.night .route-visual{background:linear-gradient(135deg,#27323c,#222c35)}
 .notice{border:1px solid #d7c8a9;background:#fbf3df;border-radius:18px;padding:16px;margin:12px 0} .notice strong{display:block;margin-bottom:4px} .manhole{margin-top:14px;padding:12px 14px;border:1px dashed #b9a98a;border-radius:16px;background:#f7f0df}.manhole .mh-title{font-size:13px;font-weight:900}.manhole .mh-meta{margin-top:4px;color:var(--muted);font-size:12px}.manhole .mh-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.manhole a{font-size:12px;font-weight:800;text-decoration:none;border-bottom:1px dashed var(--accent)}body.night .manhole{background:#27323c;border-color:#52616d}
 .aoi{border-left:5px solid #557c8d;background:#edf4f5} .aoi p{margin:6px 0 0}
 .todo{padding-left:20px;margin:8px 0 0} .todo li{margin:8px 0}
 .tips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px} .tip{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px} .tip b{display:block;margin-bottom:4px}
 .footer{padding:36px 0 50px;color:var(--muted);font-size:12px} .sources a{display:block;margin:5px 0}
-@media(max-width:720px){.grid,.tips{grid-template-columns:1fr} .dayhead{display:block} .route-toggle{margin-top:10px} .timeline{grid-template-columns:54px 16px 1fr}}
+@media(max-width:720px){.grid,.tips{grid-template-columns:1fr}.dayhead{display:block}.route-toggle{margin-top:10px}.timeline{grid-template-columns:54px 16px 1fr}.route-visual-inner{padding-bottom:14px}.route-node{flex-basis:118px}.route-node:not(:last-child)::after{right:-14px;width:28px}.route-dot{width:38px;height:38px}.maps-actions{display:grid;grid-template-columns:1fr}.maps-route{width:100%;text-align:center}}
 body.night{--bg:#17202a;--paper:#202a34;--ink:#eef3ef;--muted:#aeb8b3;--line:#35424d;--shadow:0 12px 30px rgba(0,0,0,.18)} body.night .facts,body.night .route-toggle,body.night .mini-map{background:#2a3440} body.night .content p{color:#c2cbc7}
 </style>
 </head>
@@ -149,24 +149,49 @@ body.night{--bg:#17202a;--paper:#202a34;--ink:#eef3ef;--muted:#aeb8b3;--line:#35
 <footer class="footer"><div class="sources"><b>核对依据</b><a target="_blank" rel="noopener" href="https://www.kobe-access.jp/time">Bay Shuttle 官方时刻表 →</a><a target="_blank" rel="noopener" href="https://www.kansai-airport.or.jp/en/flight/route/t1_dep">KIX T1 官方国际出发信息 →</a><a target="_blank" rel="noopener" href="https://ferry.co.jp/news/news-71110/">Jumbo Ferry 临时运行公告 →</a><a target="_blank" rel="noopener" href="https://www.gk-p.jp/activity/mc/">マンホールカード官方总览 →</a><a target="_blank" rel="noopener" href="https://www.city.kanonji.kagawa.jp/soshiki/26/18252.html">观音寺市井盖卡官方信息 →</a><a target="_blank" rel="noopener" href="https://www.city.imabari.ehime.jp/gesuig/mhcard/">今治市井盖卡官方信息 →</a><a target="_blank" rel="noopener" href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/josuido/pr/manho-ru/mhcard.html">松山市井盖卡官方信息 →</a><a target="_blank" rel="noopener" href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/jogesuido/oshirase/manhole_haifu.html">高松市井盖卡官方信息 →</a></div><p>旅行时间均按日本当地时区记录；倒计时使用事件自身的绝对时间戳，跨时区打开不会因浏览器时区改变而算错。</p></footer>
 </div>
 <script>
-/* Google Maps Embed API key: replace the placeholder below with a browser-restricted key.
-   The page keeps a direct Google Maps route button even when no key is configured. */
-const GOOGLE_MAPS_EMBED_API_KEY = 'YOUR_GOOGLE_MAPS_EMBED_API_KEY';
+/* Google Maps URLs only — no API key / billing required. */
 const events = [["2026-09-24T10:00:00+08:00", "去程航班 UO642 · HKG → TAK"], ["2026-09-24T14:45:00+09:00", "抵达高松机场"], ["2026-09-25T09:00:00+09:00", "四国水族馆"], ["2026-09-25T12:14:00+09:00", "宇多津 → 观音寺（建议档）"], ["2026-09-25T16:10:00+09:00", "Sunset Shuttle · 高屋神社本宫 → 观音寺（建议档）"], ["2026-09-25T17:40:00+09:00", "JR观音寺 → 今治"], ["2026-09-26T08:30:00+09:00", "今治站取已预约自行车"], ["2026-09-26T17:17:00+09:00", "瀬戸田 → 今治巴士（撤退锚点）"], ["2026-09-26T18:47:00+09:00", "今治 → 松山"], ["2026-09-27T06:00:00+09:00", "道后温泉可入浴"], ["2026-09-29T17:52:00+09:00", "高松日落 · 屋岛"], ["2026-09-30T08:00:00+09:00", "高松 → 男木岛"], ["2026-09-30T11:00:00+09:00", "男木岛 → 高松"], ["2026-09-30T12:45:00+09:00", "高松 → 土庄"], ["2026-10-01T13:15:00+09:00", "建议锚点 · 福田 → 姬路"], ["2026-10-01T17:44:00+09:00", "神户日落参考时间"], ["2026-10-03T17:00:00+09:00", "回程航班 UO899 · KIX → HKG"]];
-function initEmbeddedMaps(){
-  document.querySelectorAll('.map-embed').forEach(box=>{
-    if(!GOOGLE_MAPS_EMBED_API_KEY || GOOGLE_MAPS_EMBED_API_KEY==='YOUR_GOOGLE_MAPS_EMBED_API_KEY') return;
-    const p=new URLSearchParams();
-    p.set('key',GOOGLE_MAPS_EMBED_API_KEY);
-    p.set('origin',box.dataset.origin);
-    p.set('destination',box.dataset.destination);
-    p.set('travelmode',box.dataset.mode||'transit');
-    if(box.dataset.waypoints) p.set('waypoints',box.dataset.waypoints);
-    const iframe=document.createElement('iframe');
-    iframe.loading='lazy'; iframe.allowFullscreen=true;
-    iframe.referrerPolicy='strict-origin-when-cross-origin';
-    iframe.src='https://www.google.com/maps/embed/v1/directions?'+p.toString();
-    box.innerHTML=''; box.appendChild(iframe);
+function buildRouteVisuals(){
+  document.querySelectorAll('.routebox').forEach(box=>{
+    const stopsEl=box.querySelector('.stops');
+    if(!stopsEl||box.querySelector('.route-visual')) return;
+    const labels=stopsEl.textContent.split('→').map(s=>s.trim()).filter(Boolean);
+    if(!labels.length) return;
+    const visual=document.createElement('div'); visual.className='route-visual';
+    const inner=document.createElement('div'); inner.className='route-visual-inner';
+    labels.forEach((label,i)=>{
+      const node=document.createElement('div'); node.className='route-node';
+      const dot=document.createElement('div'); dot.className='route-dot'; dot.textContent=String(i+1);
+      const name=document.createElement('span'); name.textContent=label;
+      node.append(dot,name); inner.appendChild(node);
+    });
+    visual.appendChild(inner);
+    const hint=document.createElement('div'); hint.className='route-hint';
+    hint.textContent='横向滑动可查看完整路线；地点名称可点开 Google Maps。';
+    visual.appendChild(hint); stopsEl.parentNode.insertBefore(visual,stopsEl);
+  });
+}
+function linkifyPlaces(){
+  const places={'四国水族馆':'https://www.google.com/maps/search/?api=1&query=Shikoku+Aquarium%2C+Utazu%2C+Kagawa%2C+Japan','宇多津':'https://www.google.com/maps/search/?api=1&query=Utazu+Station%2C+Kagawa%2C+Japan','观音寺':'https://www.google.com/maps/search/?api=1&query=Kanonji+Station%2C+Kagawa%2C+Japan','大正桥プラザ':'https://www.google.com/maps/search/?api=1&query=Taishobashi+Plaza%2C+Kanonji%2C+Kagawa%2C+Japan','高屋神社':'https://www.google.com/maps/search/?api=1&query=Takaya+Shrine%2C+Kanonji%2C+Kagawa%2C+Japan','下宫':'https://www.google.com/maps/search/?api=1&query=Takaya+Shrine+Lower+Shrine%2C+Kanonji%2C+Kagawa%2C+Japan','天空鸟居':'https://www.google.com/maps/search/?api=1&query=Takaya+Shrine+Tenku+no+Torii%2C+Kanonji%2C+Kagawa%2C+Japan','今治':'https://www.google.com/maps/search/?api=1&query=Imabari+Station%2C+Ehime%2C+Japan','松山':'https://www.google.com/maps/search/?api=1&query=Matsuyama+Station%2C+Ehime%2C+Japan','道后温泉':'https://www.google.com/maps/search/?api=1&query=Dogo+Onsen%2C+Matsuyama%2C+Ehime%2C+Japan','高松':'https://www.google.com/maps/search/?api=1&query=Takamatsu+Station%2C+Kagawa%2C+Japan','金刀比罗宫':'https://www.google.com/maps/search/?api=1&query=Kotohira+Gu%2C+Kotohira%2C+Kagawa%2C+Japan','屋岛':'https://www.google.com/maps/search/?api=1&query=Yashima%2C+Takamatsu%2C+Kagawa%2C+Japan','男木岛':'https://www.google.com/maps/search/?api=1&query=Ogijima%2C+Kagawa%2C+Japan','高松港':'https://www.google.com/maps/search/?api=1&query=Takamatsu+Port%2C+Takamatsu%2C+Kagawa%2C+Japan','土庄港':'https://www.google.com/maps/search/?api=1&query=Tonosho+Port%2C+Shodoshima%2C+Kagawa%2C+Japan','小豆岛':'https://www.google.com/maps/search/?api=1&query=Shodoshima%2C+Kagawa%2C+Japan','福田港':'https://www.google.com/maps/search/?api=1&query=Fukuda+Port%2C+Shodoshima%2C+Kagawa%2C+Japan','姬路港':'https://www.google.com/maps/search/?api=1&query=Himeji+Port%2C+Himeji%2C+Hyogo%2C+Japan','姬路城':'https://www.google.com/maps/search/?api=1&query=Himeji+Castle%2C+Himeji%2C+Hyogo%2C+Japan','姬路市立动物园':'https://www.google.com/maps/search/?api=1&query=Himeji+City+Zoo%2C+Himeji%2C+Hyogo%2C+Japan','圆教寺':'https://www.google.com/maps/search/?api=1&query=Engyoji+Temple%2C+Himeji%2C+Hyogo%2C+Japan','三宫':'https://www.google.com/maps/search/?api=1&query=Kobe+Sannomiya+Station%2C+Kobe%2C+Hyogo%2C+Japan','摩耶山·掬星台':'https://www.google.com/maps/search/?api=1&query=Maya+Mount+Kikuseidai%2C+Kobe%2C+Hyogo%2C+Japan','神户机场':'https://www.google.com/maps/search/?api=1&query=Kobe+Airport%2C+Kobe%2C+Hyogo%2C+Japan','KIX T1':'https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan'};
+  document.querySelectorAll('.timeline .content').forEach(root=>{
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT); const nodes=[];
+    while(walker.nextNode()) if(walker.currentNode.parentElement?.tagName!=='A') nodes.push(walker.currentNode);
+    nodes.forEach(textNode=>{
+      const text=textNode.nodeValue; const entries=Object.entries(places).sort((a,b)=>b[0].length-a[0].length);
+      const hit=entries.map(([name,url])=>({name,url,idx:text.indexOf(name)})).filter(x=>x.idx>=0)[0]; if(!hit) return;
+      const frag=document.createDocumentFragment(); if(hit.idx) frag.appendChild(document.createTextNode(text.slice(0,hit.idx)));
+      const a=document.createElement('a'); a.className='place-link'; a.target='_blank'; a.rel='noopener'; a.href=hit.url; a.textContent=hit.name; frag.appendChild(a);
+      if(hit.idx+hit.name.length<text.length) frag.appendChild(document.createTextNode(text.slice(hit.idx+hit.name.length)));
+      textNode.parentNode.replaceChild(frag,textNode);
+    });
+  });
+}
+function addSegmentLinks(){
+  document.querySelectorAll('.routebox').forEach(box=>{
+    const btn=box.querySelector('.maps-route'); if(!btn||box.querySelector('.maps-segments')) return;
+    const labels=box.querySelector('.stops')?.textContent.split('→').map(s=>s.trim()).filter(Boolean)||[]; if(labels.length<3) return;
+    const actions=document.createElement('div'); actions.className='maps-actions'; btn.parentNode.insertBefore(actions,btn); actions.appendChild(btn);
+    const note=document.createElement('div'); note.className='maps-segments'; note.textContent='提示：Google Maps 手机浏览器对中途航点有平台限制，站点较多时请以页面上的分段信息为准。'; box.appendChild(note);
   });
 }
 function pad(n){return String(n).padStart(2,'0')}
@@ -185,6 +210,6 @@ function updateCountdown(){
 }
 function toggleDay(n){document.getElementById('route'+n).classList.toggle('open')}
 function nightMode(){const h=new Date().getHours();document.body.classList.toggle('night', h>=18 || h<6)}
-initEmbeddedMaps(); updateCountdown(); setInterval(updateCountdown,1000); nightMode(); setInterval(nightMode,60000);
+buildRouteVisuals(); linkifyPlaces(); addSegmentLinks(); updateCountdown(); setInterval(updateCountdown,1000); nightMode(); setInterval(nightMode,60000);
 </script>
 </body></html>
