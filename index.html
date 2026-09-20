@@ -25,7 +25,7 @@ h1{font-size:clamp(34px,6vw,66px);line-height:1.05;margin:8px 0 10px;letter-spac
 .day{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--day);border-radius:20px;margin:12px 0;padding:18px;box-shadow:var(--shadow)}
 .dayhead{display:flex;justify-content:space-between;gap:12px;align-items:start} .day h2{margin:4px 0 0;font-size:21px;line-height:1.25} button{font:inherit} .route-toggle{border:1px solid var(--line);background:#f2eadb;border-radius:999px;padding:7px 11px;font-size:12px;cursor:pointer;white-space:nowrap}
 .timeline{display:grid;grid-template-columns:70px 18px 1fr;gap:10px;margin-top:16px;align-items:start} .time{font-weight:800;font-variant-numeric:tabular-nums;font-size:14px} .dot{width:12px;height:12px;border-radius:50%;background:var(--day);margin-top:5px;box-shadow:0 0 0 5px color-mix(in srgb,var(--day) 16%,transparent)} .content strong{font-size:15px} .content p{margin:3px 0 0;color:#4f5a53;font-size:14px}
-.routebox{display:none;margin-top:14px;border-top:1px dashed var(--line);padding-top:14px} .routebox.open{display:block} .route-title{font-size:12px;font-weight:800;color:var(--muted)} .mini-map{margin-top:6px;background:#f2eadb;border-radius:15px;width:100%;height:auto} .mini-map .route-path{fill:none;stroke:var(--day);stroke-width:6;stroke-linecap:round;stroke-dasharray:10 8} .mini-map circle{fill:var(--day)} .mini-map text{font-size:12px;fill:#59635c} .stops{font-size:13px;color:var(--muted)}
+.routebox{display:none;margin-top:14px;border-top:1px dashed var(--line);padding-top:14px} .routebox.open{display:block} .route-title{font-size:12px;font-weight:800;color:var(--muted)} .map-embed{margin-top:8px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#e9e3d5;position:relative;aspect-ratio:16/9}.map-embed iframe{display:block;width:100%;height:100%;border:0}.map-placeholder{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--muted);font-size:13px}.map-placeholder b{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.stops{font-size:13px;color:var(--muted);margin-top:8px}
 .notice{border:1px solid #d7c8a9;background:#fbf3df;border-radius:18px;padding:16px;margin:12px 0} .notice strong{display:block;margin-bottom:4px}
 .aoi{border-left:5px solid #557c8d;background:#edf4f5} .aoi p{margin:6px 0 0}
 .todo{padding-left:20px;margin:8px 0 0} .todo li{margin:8px 0}
@@ -116,8 +116,7 @@ body.night{--bg:#17202a;--paper:#202a34;--ink:#eef3ef;--muted:#aeb8b3;--line:#35
 <div class="section-title"><div><h2>已确认航班</h2><p>公开页面不放确认号、证件号等敏感信息。</p></div></div>
 <div class="grid"><article class="card"><div class="date">9/24 · 去程</div><h3>UO642</h3><p>香港 HKG 10:00 → 高松 TAK 14:45<br>约 3h45m</p></article><article class="card"><div class="date">10/3 · 回程</div><h3>UO899</h3><p>大阪关西 KIX T1 17:00 → 香港 HKG T1 20:10</p></article></div>
 
-<div class="section-title"><div><h2>10天逐日行程</h2><p>左时间、右内容；地点可直接打开 Google Maps，展开可看当天串联路线。</p></div></div>
-<div class="section-title"><div><h2>10天逐日行程</h2><p>左时间、右内容；展开可看当天路线。</p></div></div>
+<div class="section-title"><div><h2>10天逐日行程</h2><p>左时间、右内容；每天一张 Google Maps 完整路线大地图；地点可一键跳 Google Maps 导航。</p></div></div>
 <section class="day c1" id="day1"><div class="dayhead"><div><span class="eyebrow">Day 1 · 9/24 · 周四</span><h2>🛬 高松机场 → 栗林公园 → 高松</h2></div><button class="route-toggle" onclick="toggleDay(1)">展开路线</button></div><div class="timeline">
 <div class="time">14:45</div><div class="dot"></div><div class="content"><strong><a class="place-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Takamatsu+Airport,+Kagawa,+Japan">高松机场</a>落地</strong><p>UO642 抵达。国际航班对应机场利木津巴士目标班次为 15:45；官方时刻表显示约 16:13 到达栗林公園前。</p></div>
 <div class="time">15:45</div><div class="dot"></div><div class="content"><strong>机场巴士 → <a class="place-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ritsurin+Garden,+Takamatsu,+Kagawa,+Japan">栗林公园</a></strong><p>15:45 高松机场发车 → 约16:13 栗林公園前；下车步行约1分钟到公园。</p></div>
@@ -150,7 +149,26 @@ body.night{--bg:#17202a;--paper:#202a34;--ink:#eef3ef;--muted:#aeb8b3;--line:#35
 <footer class="footer"><div class="sources"><b>核对依据</b><a target="_blank" rel="noopener" href="https://www.kobe-access.jp/time">Bay Shuttle 官方时刻表 →</a><a target="_blank" rel="noopener" href="https://www.kansai-airport.or.jp/en/flight/route/t1_dep">KIX T1 官方国际出发信息 →</a><a target="_blank" rel="noopener" href="https://ferry.co.jp/news/news-71110/">Jumbo Ferry 临时运行公告 →</a></div><p>旅行时间均按日本当地时区记录；倒计时使用事件自身的绝对时间戳，跨时区打开不会因浏览器时区改变而算错。</p></footer>
 </div>
 <script>
+/* Google Maps Embed API key: replace the placeholder below with a browser-restricted key.
+   The page keeps a direct Google Maps route button even when no key is configured. */
+const GOOGLE_MAPS_EMBED_API_KEY = 'YOUR_GOOGLE_MAPS_EMBED_API_KEY';
 const events = [["2026-09-24T10:00:00+08:00", "去程航班 UO642 · HKG → TAK"], ["2026-09-24T14:45:00+09:00", "抵达高松机场"], ["2026-09-25T09:00:00+09:00", "四国水族馆"], ["2026-09-25T12:14:00+09:00", "宇多津 → 观音寺（建议档）"], ["2026-09-25T16:10:00+09:00", "Sunset Shuttle · 高屋神社本宫 → 观音寺（建议档）"], ["2026-09-25T17:40:00+09:00", "JR观音寺 → 今治"], ["2026-09-26T08:30:00+09:00", "今治站取已预约自行车"], ["2026-09-26T17:17:00+09:00", "瀬戸田 → 今治巴士（撤退锚点）"], ["2026-09-26T18:47:00+09:00", "今治 → 松山"], ["2026-09-27T06:00:00+09:00", "道后温泉可入浴"], ["2026-09-29T17:52:00+09:00", "高松日落 · 屋岛"], ["2026-09-30T08:00:00+09:00", "高松 → 男木岛"], ["2026-09-30T11:00:00+09:00", "男木岛 → 高松"], ["2026-09-30T12:45:00+09:00", "高松 → 土庄"], ["2026-10-01T13:15:00+09:00", "建议锚点 · 福田 → 姬路"], ["2026-10-01T17:44:00+09:00", "神户日落参考时间"], ["2026-10-03T17:00:00+09:00", "回程航班 UO899 · KIX → HKG"]];
+function initEmbeddedMaps(){
+  document.querySelectorAll('.map-embed').forEach(box=>{
+    if(!GOOGLE_MAPS_EMBED_API_KEY || GOOGLE_MAPS_EMBED_API_KEY==='YOUR_GOOGLE_MAPS_EMBED_API_KEY') return;
+    const p=new URLSearchParams();
+    p.set('key',GOOGLE_MAPS_EMBED_API_KEY);
+    p.set('origin',box.dataset.origin);
+    p.set('destination',box.dataset.destination);
+    p.set('travelmode',box.dataset.mode||'transit');
+    if(box.dataset.waypoints) p.set('waypoints',box.dataset.waypoints);
+    const iframe=document.createElement('iframe');
+    iframe.loading='lazy'; iframe.allowFullscreen=true;
+    iframe.referrerPolicy='strict-origin-when-cross-origin';
+    iframe.src='https://www.google.com/maps/embed/v1/directions?'+p.toString();
+    box.innerHTML=''; box.appendChild(iframe);
+  });
+}
 function pad(n){return String(n).padStart(2,'0')}
 function updateCountdown(){
   const now=Date.now();
@@ -167,6 +185,6 @@ function updateCountdown(){
 }
 function toggleDay(n){document.getElementById('route'+n).classList.toggle('open')}
 function nightMode(){const h=new Date().getHours();document.body.classList.toggle('night', h>=18 || h<6)}
-updateCountdown(); setInterval(updateCountdown,1000); nightMode(); setInterval(nightMode,60000);
+initEmbeddedMaps(); updateCountdown(); setInterval(updateCountdown,1000); nightMode(); setInterval(nightMode,60000);
 </script>
 </body></html>
