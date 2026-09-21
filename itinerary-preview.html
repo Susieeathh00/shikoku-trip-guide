@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>四国旅行指南 · 行程表试版</title>
+<style>
+:root{--bg:#f7f0df;--paper:#fffaf0;--ink:#26352e;--muted:#6e756e;--line:#ddd3bd;--accent:#2f6f5e;--day:#d86f5f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}.wrap{max-width:1120px;margin:auto;padding:28px 18px 60px}
+h1{margin:0 0 6px;font-size:32px;letter-spacing:-.03em}.lead{margin:0 0 22px;color:var(--muted);font-size:14px}
+.day{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--day);border-radius:22px;box-shadow:0 10px 30px rgba(45,45,30,.08);overflow:hidden;margin:18px 0}.dayhead{padding:18px 20px 14px;border-bottom:1px solid var(--line)}.eyebrow{font-size:11px;letter-spacing:.08em;color:var(--accent);font-weight:800}.day h2{margin:4px 0 0;font-size:23px}
+.table{width:100%}.row{display:grid;grid-template-columns:92px 110px minmax(180px,230px) 1fr;gap:0;border-bottom:1px solid var(--line);align-items:stretch}.row:last-child{border-bottom:0}.cell{padding:13px 14px}.time{font-weight:850;font-variant-numeric:tabular-nums}.tool{font-weight:800;color:#4d5b54}.place{font-weight:850}.place a{color:inherit;text-decoration:none;border-bottom:1px dashed var(--accent)}.desc{color:#505b55}.desc strong{color:var(--ink)}
+.route{padding:15px 20px;background:#f1eadc;border-top:1px dashed var(--line)}.route-title{font-size:12px;font-weight:900;color:var(--muted);margin-bottom:5px}.route a{font-weight:800;color:var(--accent)}.maps{display:inline-block;margin-top:9px;background:var(--accent);color:white!important;text-decoration:none!important;border:0!important;padding:7px 12px;border-radius:999px;font-size:12px}
+.note{margin-top:14px;padding:12px 14px;border:1px dashed #b9a98a;border-radius:16px;background:#fbf3df;font-size:13px}.note b{display:block;margin-bottom:3px}
+@media(max-width:720px){.row{grid-template-columns:64px 74px 1fr}.desc{grid-column:3/-1;padding-top:0;padding-left:14px}.cell{padding:10px 9px}.day h2{font-size:20px}.route{padding:13px}}
+</style>
+</head>
+<body><main class="wrap">
+<h1>10天逐日行程 · 新版三列结构试版</h1>
+<p class="lead">左：时间　·　中：交通工具　·　右：地点（可直接打开 Google Maps）　·　地点后显示当天具体说明。</p>
+
+<section class="day">
+<div class="dayhead"><div class="eyebrow">DAY 1 · 9/24 · 周四</div><h2>高松机场 → 栗林公园 → JR高松站 → 高松住宿</h2></div>
+<div class="table">
+<div class="row"><div class="cell time">14:45</div><div class="cell tool">步行</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Takamatsu+Airport%2C+Kagawa%2C+Japan">高松机场</a></div><div class="cell desc">入境、取行李；UO642 抵达后前往机场巴士站。</div></div>
+<div class="row"><div class="cell time">15:45</div><div class="cell tool">巴士</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ritsurin+Garden%2C+Takamatsu%2C+Kagawa%2C+Japan">栗林公园</a></div><div class="cell desc">机场利木津巴士 15:45 发车；约 16:13 抵达栗林公園前，下车步行约 1 分钟。</div></div>
+<div class="row"><div class="cell time">16:30</div><div class="cell tool">步行</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ritsurin+Garden%2C+Takamatsu%2C+Kagawa%2C+Japan">栗林公园</a></div><div class="cell desc">约 2 小时精华游；9 月开放至 18:30。根据体力决定是否走完整园区。</div></div>
+<div class="row"><div class="cell time">18:30</div><div class="cell tool">巴士</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=JR+Takamatsu+Station%2C+Takamatsu%2C+Kagawa%2C+Japan">JR高松站</a></div><div class="cell desc">前往高松站，兑换纸质 / MCO ALL SHIKOKU Rail Pass。</div></div>
+<div class="row"><div class="cell time">—</div><div class="cell tool">步行</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=KOKO+HOTEL+Takamatsu%2C+Takamatsu%2C+Kagawa%2C+Japan">KOKO HOTEL Takamatsu</a></div><div class="cell desc">办理入住、放行李。住宿不再单独列成一个模块，而是直接作为当天最后一个地点。</div></div>
+</div>
+<div class="route"><div class="route-title">当天完整路线</div><div>高松机场 → 栗林公园 → JR高松站 → KOKO HOTEL Takamatsu</div><a class="maps" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Takamatsu+Airport%2C+Kagawa%2C+Japan&destination=KOKO+HOTEL+Takamatsu%2C+Takamatsu%2C+Kagawa%2C+Japan&travelmode=transit&waypoints=Ritsurin+Garden%2C+Takamatsu%2C+Kagawa%2C+Japan%7CJR+Takamatsu+Station%2C+Takamatsu%2C+Kagawa%2C+Japan">在 Google Maps 打开全天路线 →</a></div>
+</section>
+
+<section class="day" style="--day:#6f8fbd">
+<div class="dayhead"><div class="eyebrow">DAY 2 · 9/25 · 周五</div><h2>宇多津 → 高屋神社 → 今治</h2></div>
+<div class="table">
+<div class="row"><div class="cell time">07:40</div><div class="cell tool">JR</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=JR+Takamatsu+Station%2C+Takamatsu%2C+Kagawa%2C+Japan">JR高松站</a></div><div class="cell desc">从高松出发；按当天已筛选的车次前往宇多津，衔接上午行程。</div></div>
+<div class="row"><div class="cell time">09:00</div><div class="cell tool">步行</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shikoku+Aquarium%2C+Utazu%2C+Kagawa%2C+Japan">四国水族馆</a></div><div class="cell desc">约 2 小时；之后前往观音寺方向。</div></div>
+<div class="row"><div class="cell time">12:14</div><div class="cell tool">JR</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kanonji+Station%2C+Kagawa%2C+Japan">JR观音寺站</a></div><div class="cell desc">宇多津 → 观音寺；到站后衔接午餐、打车前往高屋神社下宫。</div></div>
+<div class="row"><div class="cell time">12:37</div><div class="cell tool">出租车</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Takaya+Shrine+Lower+Shrine%2C+Kanonji%2C+Kagawa%2C+Japan">高屋神社下宫</a></div><div class="cell desc">前往登山起点；之后徒步约 50 分钟到天空鸟居。</div></div>
+<div class="row"><div class="cell time">16:10</div><div class="cell tool">接驳巴士</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Takaya+Shrine%2C+Kanonji%2C+Kagawa%2C+Japan">高屋神社本宫</a></div><div class="cell desc">按已规划的 Sunset Shuttle 档位下山回观音寺方向，再衔接 JR 去今治。</div></div>
+<div class="row"><div class="cell time">17:40</div><div class="cell tool">JR</div><div class="cell place"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Imabari+Station%2C+Ehime%2C+Japan">今治站</a></div><div class="cell desc">观音寺 → 今治；抵达后步行前往酒店。</div></div>
+</div>
+<div class="route"><div class="route-title">当天完整路线</div><div>JR高松站 → 四国水族馆 → JR观音寺站 → 高屋神社下宫 → 高屋神社本宫 → 今治站</div><a class="maps" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=JR+Takamatsu+Station%2C+Takamatsu%2C+Kagawa%2C+Japan&destination=JR+Imabari+Station%2C+Imabari%2C+Ehime%2C+Japan&travelmode=transit&waypoints=Shikoku+Aquarium%2C+Utazu%2C+Kagawa%2C+Japan%7CKanonji+Station%2C+Kagawa%2C+Japan%7CTakaya+Shrine+Lower+Shrine%2C+Kanonji%2C+Kagawa%2C+Japan%7CTakaya+Shrine%2C+Kanonji%2C+Kagawa%2C+Japan">在 Google Maps 打开全天路线 →</a></div>
+</section>
+<div class="note"><b>这版我按你的要求改了结构</b>时间固定在最左；交通工具单独一列；地点单独一列并可直接打开 Google Maps；最右才是详细描述。住宿也不再独立成一个“住宿”区块，而是作为当天最后一个地点。</div>
+</main></body></html>
